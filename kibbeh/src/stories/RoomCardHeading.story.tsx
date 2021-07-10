@@ -1,23 +1,24 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import { RoomCardHeading, RoomCardHeadingProps } from "../ui/RoomCardHeading";
-import { SmSolidTime } from "../icons";
+import { SolidTime } from "../icons";
 
 export default {
   title: "RoomCardHeading",
 };
 
-const TheRoomCardHeading: Story<RoomCardHeadingProps> = ({ icon, text }) => {
-  return (
-    <div className="flex flex-col space-y-5">
-      <RoomCardHeading
-        icon={icon || <SmSolidTime />}
-        text={text || "Live with u/DeepFuckingValue"}
-      />
+const LiveHeading: Story<RoomCardHeadingProps> = ({ icon, text }) => {
+  return <RoomCardHeading text={text || "The developers hangout"} />;
+};
 
-      <RoomCardHeading text={text || "The developers hangout"} />
-    </div>
+const ScheduledHeading: Story<RoomCardHeadingProps> = ({ icon, text }) => {
+  return (
+    <RoomCardHeading
+      icon={icon || <SolidTime />}
+      text={text || "Live with u/DeepFuckingValue"}
+    />
   );
 };
 
-export const Main = TheRoomCardHeading.bind({});
+export const Current = LiveHeading.bind({});
+export const Scheduled = ScheduledHeading.bind({});

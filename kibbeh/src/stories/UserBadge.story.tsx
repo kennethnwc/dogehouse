@@ -1,7 +1,7 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import { UserBadge } from "../ui/UserBadge";
-import { SmSolidDogenitro } from "../icons";
+import { SolidDogenitro } from "../icons";
 
 export default {
   title: "UserBadge",
@@ -10,15 +10,15 @@ export default {
 const TheUserBadge: Story = () => {
   return (
     <div className="flex flex-row">
-      <div className="m-1">
+      <div className="flex">
         <UserBadge>ƉC</UserBadge>
       </div>
-      <div className="m-1">
+      <div className="flex">
         <UserBadge>ƉS</UserBadge>
       </div>
-      <div className="m-1">
+      <div className="flex">
         <UserBadge variant="secondary">
-          <SmSolidDogenitro style={{ color: '#FFF' }} width={12} />
+          <SolidDogenitro style={{ color: "#FFF" }} width={12} />
         </UserBadge>
       </div>
     </div>

@@ -4,14 +4,14 @@ import { Story } from "@storybook/react";
 import { BaseOverlay, BaseOverlayProps } from "../ui/BaseOverlay";
 import { MessageElement } from "../ui/MessageElement";
 import avatar from "../img/avatar.png";
+import { SettingsIcon } from "../ui/SettingsIcon";
+import { SolidCaretRight, OutlineGlobe, SolidUser } from "../icons";
 import {
-  FollowNotification,
   GenericNotification,
+  FollowNotification,
   LiveNotification,
   NewRoomNotification,
 } from "../ui/NotificationElement";
-import { SettingsIcon } from "../ui/SettingsIcon";
-import { SmSolidCaretRight, SmOutlineGlobe, SmSolidUser } from "../icons";
 
 const user = {
   avatar,
@@ -34,7 +34,7 @@ export const Messages: Story<BaseOverlayProps> = ({
   title = "Messages",
   actionButton: actionLabel = "Show More",
 }) => (
-  <div style={{ width: 444 }}>
+  <div className="flex" style={{ width: 444 }}>
     <BaseOverlay title={title} actionButton={actionLabel}>
       <MessageElement user={user} msg={msg} />
       <MessageElement user={user} msg={msg} />
@@ -48,14 +48,15 @@ Messages.bind({});
 interface IconWrapperProps {
   children: ReactNode;
 }
+
 function IconWrapper({ children }: IconWrapperProps) {
-  return <div className="py-3 px-4">{children}</div>;
+  return <div className="flex py-3 px-4">{children}</div>;
 }
 
 export const Notifications: Story<BaseOverlayProps> = ({
   title = "Notifications",
 }) => (
-  <div style={{ width: 444 }}>
+  <div className="flex" style={{ width: 444 }}>
     <BaseOverlay title={title}>
       <IconWrapper>
         <GenericNotification
@@ -85,17 +86,17 @@ Notifications.bind({});
 export const Settings: Story<BaseOverlayProps> = ({
   actionButton: actionLabel = "Log out",
 }) => (
-  <div style={{ width: 200 }}>
+  <div className="flex" style={{ width: 200 }}>
     <BaseOverlay actionButton={actionLabel}>
       <div className="flex flex-col">
         <SettingsIcon
-          icon={<SmSolidUser className={`text-primary-100`} />}
+          icon={<SolidUser className={`text-primary-100`} />}
           label={"profile"}
         />
         <SettingsIcon
-          icon={<SmOutlineGlobe />}
+          icon={<OutlineGlobe />}
           label={"Language"}
-          trailingIcon={<SmSolidCaretRight />}
+          trailingIcon={<SolidCaretRight />}
         />
       </div>
     </BaseOverlay>
